@@ -219,6 +219,13 @@
                 bodyPaddingCalculate();
             });
 
+            $("#reload").click(function() {
+                var reload = confirm("Θέλετε να ξαναφοτώσετε τη σελίδα;");
+                if (reload === true) {
+                    location.reload();
+                }
+            });
+
             $(".item").click(function() {
                 price = Number($(this).attr('data-price'));
                 buttonClass = "item";
@@ -233,13 +240,6 @@
                 $(this).remove();
                 priceUpdate();
                 bodyPaddingCalculate();
-            });
-
-            $("#reload").click(function() {
-                var reload = confirm("Θέλετε να ξαναφοτώσετε τη σελίδα;");
-                if (reload === true) {
-                    location.reload();
-                }
             });
         </script>
     </body>
