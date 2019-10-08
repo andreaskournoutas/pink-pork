@@ -45,9 +45,6 @@
                 padding-bottom: 15px;
                 box-shadow: 0 0 5px gray;
             }
-            #items {
-                padding-bottom: 15px;
-            }
             #price-col {
                 font-size: 32px;
                 padding-top: 7px;
@@ -210,13 +207,19 @@
                 $("#price").text(totalPrice.toFixed(2));
             }
 
-            function bodyPaddingCalculate() {
+            function paddingsCalculate() {
                 $("body").css('padding-bottom', ($("#items-container").outerHeight()));
+                if ($("#items").html() == "") {
+                    $("#items").css('padding-bottom', '0');
+                }
+                else {
+                    $("#items").css('padding-bottom', '15px');
+                }
             }
 
             $(function() {
                 $("#price").text(totalPrice);
-                bodyPaddingCalculate();
+                paddingsCalculate();
             });
 
             $("#reload").click(function() {
@@ -231,7 +234,7 @@
                 buttonClass = "item";
                 $("#items").append('<button type="button" data-price="' + price + '" class="mdl-chip items__item"><span class="mdl-chip__text">' + $(this).attr('data-name') + '</span></button>');
                 priceUpdate();
-                bodyPaddingCalculate();
+                paddingsCalculate();
             });
 
             $("#items").on('click', '.items__item', function() {
@@ -239,7 +242,7 @@
                 buttonClass = "items__item";
                 $(this).remove();
                 priceUpdate();
-                bodyPaddingCalculate();
+                paddingsCalculate();
             });
         </script>
     </body>
