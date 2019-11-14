@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="bootstrap-grid.min.css"/>
         <link rel="stylesheet" href="material.min.css" />
         <meta name="theme-color" content="white">
+        <title>Pink Pork</title>
+        <meta name="author" content="Andreas Kournoutas">
         <style>
             .col-4 {
                 padding: 7px;
@@ -209,7 +211,7 @@
             }
 
             function paddingsCalculate() {
-                document.body.setAttribute("style", "padding-bottom: " + document.getElementById("items-container").offsetHeight + "px;");
+                document.body.setAttribute("style", `padding-bottom: ${document.getElementById("items-container").offsetHeight}px`);
                 if (itemsDiv.innerHTML == "") {
                     itemsDiv.setAttribute("style", "padding-bottom: 0;");
                 }
@@ -232,7 +234,7 @@
             function addItem(item) {
                 price = Number(item.getAttribute("data-price"));
                 buttonClass = "item";
-                itemsDiv.innerHTML += '<button type="button" onclick="removeItem(this)" data-price="' + price + '" class="mdl-chip items__item"><span class="mdl-chip__text">' + item.textContent + '</span></button>'
+                itemsDiv.innerHTML += `<button type="button" onclick="removeItem(this)" data-price=${price} class="mdl-chip items__item"><span class="mdl-chip__text">${item.textContent}</span></button>`;
                 priceUpdate();
                 paddingsCalculate();
             }
